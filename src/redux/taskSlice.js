@@ -5,10 +5,6 @@ export const taskSlice = createSlice({
   initialState: [],
   reducers: {
     addTask: (state, action) => {
-      console.log(nanoid());
-      // 'dgPXxUz_6fWIQBD8XmiSy'
-
-      console.log(action.payload);
       const newTask = {
         id: nanoid(),
         name: action.payload.task,
@@ -16,13 +12,18 @@ export const taskSlice = createSlice({
       state.push(newTask);
     },
     deleteTask: (state, action) => {
-      console.log(action.payload.id);
-      console.log(state);
       return state.filter(item => item.id !== action.payload.id);
+    },
+    updateTask: (state, action) => {
+      state.map(item => {
+        if (item.id === action.payload.id) {
+          item.name = action.payload.name;
+        }
+      });
     },
   },
 });
 
-export const {addTask, deleteTask} = taskSlice.actions;
+export const {addTask, deleteTask, updateTask} = taskSlice.actions;
 
 export default taskSlice.reducer;

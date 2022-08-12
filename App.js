@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import AuthScreen from './src/screens/AuthScreen';
-import TodoListScreen from './src/screens/TodoListScreen';
+import MainScreen from './src/screens/MainScreen';
 import * as LocalAuthentication from 'expo-local-authentication';
 
-export default function App() {
+const App = () => {
   const [isBiometricSupported, setIsBiometricSupported] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -30,14 +30,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* {isAuthenticated ? (
-        <TodoListScreen setIsAuthenticated={setIsAuthenticated} />
+        <MainScreen setIsAuthenticated={setIsAuthenticated} />
       ) : (
         <AuthScreen onAuthenticate={onAuthenticate} />
       )} */}
-      <TodoListScreen />
+      <MainScreen />
     </View>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {

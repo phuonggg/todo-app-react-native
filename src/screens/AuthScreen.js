@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default function Auth({onAuthenticate}) {
+const Auth = ({onAuthenticate}) => {
   return (
     <View>
       <Text style={styles.title}>WELCOME</Text>
@@ -11,7 +11,9 @@ export default function Auth({onAuthenticate}) {
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default Auth;
 
 const styles = StyleSheet.create({
   btn: {
@@ -22,10 +24,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#0893FC',
     padding: 10,
     borderRadius: 5,
-  },
-  image: {
-    width: 400,
-    height: 461,
   },
   text: {
     color: '#fff',

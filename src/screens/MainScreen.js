@@ -1,20 +1,11 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {StatusBar} from 'expo-status-bar';
-// import SafeAreaView from safeArea context
-// import { SafeAreaProvider } from "react-native-safe-area-context";
-//import
-//import TodoHeader
-import TodoHeader from '../../src/components/TodoHeader';
-//import TodoList
-
-import TodoList from '../../src/components/TodoList';
-//import store from "./src
 import store from '../../src/redux/store';
-//import Provider
 import {Provider} from 'react-redux';
+import TodoHeader from '../../src/components/TodoHeader';
+import TodoList from '../../src/components/TodoList';
 
-export default function TodoListScreen({setIsAuthenticated}) {
+const MainScreen = ({setIsAuthenticated}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
@@ -28,7 +19,9 @@ export default function TodoListScreen({setIsAuthenticated}) {
       </Provider>
     </SafeAreaView>
   );
-}
+};
+
+export default MainScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -44,12 +37,5 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 20,
     fontWeight: '500',
-  },
-  title: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    paddingLeft: 15,
-    paddingBottom: 20,
   },
 });
