@@ -32,7 +32,7 @@ const TodoItem = ({item}) => {
     );
   };
 
-  const editTodoDodal = (
+  const editTodoModal = (
     <Modal animationType={'slide'} transparent={true} visible={showModal}>
       <View style={styles.modal}>
         {/* TextInput */}
@@ -49,7 +49,7 @@ const TodoItem = ({item}) => {
             onEdit(item);
             setShowModal(!showModal);
           }}>
-          <Text style={{color: 'white'}}> Save Edit</Text>
+          <Text> Save Edit</Text>
         </TouchableOpacity>
       </View>
     </Modal>
@@ -74,7 +74,8 @@ const TodoItem = ({item}) => {
           </TouchableOpacity>
         </View>
       </View>
-      {editTodoDodal}
+      {/* Render modal to edit todo when users click "Edit" button */}
+      {editTodoModal}
     </View>
   );
 };

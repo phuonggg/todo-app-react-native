@@ -16,6 +16,7 @@ const TodoHeader = () => {
   const dispatch = useDispatch();
 
   const onSubmitTask = () => {
+    // Prompt alert if users click "Add" button without typing any text
     if (todo.trim().length === 0) {
       Alert.alert('You need to enter a task');
       setTodo('');

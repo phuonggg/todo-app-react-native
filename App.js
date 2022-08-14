@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import * as ExpoLocalAuthentication from 'expo-local-authentication';
+import {hasHardwareAsync, authenticateAsync} from 'expo-local-authentication';
 import AuthScreen from './src/screens/AuthScreen';
 import MainScreen from './src/screens/MainScreen';
 
@@ -8,28 +8,18 @@ const App = () => {
   const [isBiometricSupported, setIsBiometricSupported] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check if hardware supports biometrics
+  // Check if device supports biometrics authentication
   useEffect(() => {
-    (async () => {
-      const compatible = await ExpoLocalAuthentication.hasHardwareAsync();
-      setIsBiometricSupported(compatible);
-    })();
+    hasHardwareAsync().then(result => setIsBiometricSupported(result));
   }, []);
 
-  function onAuthenticate() {
-    const auth = ExpoLocalAuthentication.authenticateAsync({
+  // Athenticate users (using FaceID and TouchID (iOS) or the Biometric Prompt (Android) if those were already set up, otherwise using device passcode)
+  const onAuthenticate = () => {
+    authenticateAsync({
       promptMessage: 'Authenticate',
       fallbackLabel: 'Enter Password',
-    });
-
-    auth
-      .then(result => {
-        setIsAuthenticated(result.success);
-      })
-      .catch(err => {
-        console.log('err', err);
-      });
-  }
+    }).then(result => setIsAuthenticated(result.success));
+  };
 
   return (
     <View style={styles.container}>
