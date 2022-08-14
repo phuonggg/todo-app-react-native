@@ -11,8 +11,8 @@ Todo App with local authentication and CRUD operations (create, read, update, de
 ### Built With
 
 * **React Native:** Mobile app on iOS/Android
-* **Expo Local Authentication:** authenticate users Athenticate users (using FaceID and TouchID (iOS) or the Biometric Prompt (Android) if those were already set up, otherwise using device passcode)
-* **Redux Toolkit:** state management (maybe overkill for this project but effective when increasing project scope in the future with more complicated state management) 
+* **Expo Local Authentication:** Athenticate users (using FaceID and TouchID (iOS) or the Biometric Prompt (Android) if those were already set up, otherwise using device passcode)
+* **Redux Toolkit:** State management (maybe overkill for this project but effective when increasing project scope in the future with more complicated state management) 
 
 
 <!-- GETTING STARTED -->
