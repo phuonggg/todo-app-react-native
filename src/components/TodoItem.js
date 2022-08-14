@@ -19,10 +19,9 @@ const TodoItem = ({item}) => {
     dispatch(
       updateTask({
         id: item.id,
-        name: item.name,
+        name: todo,
       }),
     );
-    // console.log(item);
   };
 
   const onDelete = id => {
@@ -39,7 +38,7 @@ const TodoItem = ({item}) => {
         {/* TextInput */}
         <TextInput
           style={styles.textInput}
-          placeholder="Add todo"
+          placeholder="Edit todo"
           onChangeText={setTodo}
           value={todo}
         />

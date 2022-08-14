@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    backgroundColor: '#0893FC',
+    backgroundColor: '#789395',
     padding: 10,
     borderRadius: 5,
   },
@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 50,
     fontWeight: '400',
-    marginVertical: 30,
+    marginVertical: 100,
     textAlign: 'center',
+    color: '#576F72',
   },
   description: {
     fontSize: 18,
